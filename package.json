@@ -1,6 +1,6 @@
 {
   "name": "beluga-engine",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rudimentary game engine that uses threejs and websockets to create a native multiplayer system for browser game development",
   "main": "./dist/beluga-engine.js",
   "types": "./dist/beluga-engine.d.ts",
