@@ -1,0 +1,54 @@
+{
+  "name": "beluga-engine",
+  "version": "0.1.0",
+  "description": "Rudimentary game engine that uses threejs and websockets to create a native multiplayer system for browser game development",
+  "main": "./dist/beluga-engine.js",
+  "types": "./dist/beluga-engine.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "type": "module",
+  "displayName": "Beluga Engine",
+  "directories": {
+    "doc": "doc",
+    "src": "src",
+    "dist": "dist",
+    "demo": "demo"
+  },
+  "scripts": {
+    "_clear": "rm -rf ./dist/*",
+    "_tsc": "tsc",
+    "_make-bundle": "rollup --config",
+    "build": "npm run _clear && npm run _tsc && npm run _make-bundle",
+    "demo": "node demo/app.js",
+    "dev": "npm run build && node demo/app.js"
+  },
+  "keywords": [
+    "js",
+    "ts",
+    "game",
+    "multiplayer",
+    "websockets",
+    "beluga-engine",
+    "3d"
+  ],
+  "author": "Iain MacKillop",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "three": "^0.168.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^22.5.4",
+    "@types/ws": "^8.5.12",
+    "rollup": "^4.21.3",
+    "rollup-plugin-dts": "^6.1.1",
+    "tslib": "^2.7.0",
+    "vitest": "^2.1.1"
+  }
+}
