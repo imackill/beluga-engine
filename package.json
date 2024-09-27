@@ -5,7 +5,11 @@
   "main": "./dist/beluga-engine.js",
   "types": "./dist/beluga-engine.d.ts",
   "files": [
-    "/dist"
+    "/dist",    
+    "/src",
+    "/demo",
+    "/doc",
+    "/types"
   ],
   "type": "module",
   "displayName": "Beluga Engine",
@@ -13,7 +17,8 @@
     "doc": "doc",
     "src": "src",
     "dist": "dist",
-    "demo": "demo"
+    "demo": "demo",
+    "types": "types"
   },
   "scripts": {
     "_clear": "rm -rf ./dist/*",
