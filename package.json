@@ -7,7 +7,6 @@
   "files": [
     "/dist",    
     "/src",
-    "/demo",
     "/doc",
     "/types"
   ],
@@ -17,16 +16,13 @@
     "doc": "doc",
     "src": "src",
     "dist": "dist",
-    "demo": "demo",
     "types": "types"
   },
   "scripts": {
     "_clear": "rm -rf ./dist/*",
     "_tsc": "tsc",
     "_make-bundle": "rollup --config",
-    "build": "npm run _clear && npm run _tsc && npm run _make-bundle",
-    "demo": "node demo/app.js",
-    "dev": "npm run build && node demo/app.js"
+    "build": "npm run _clear && npm run _tsc && npm run _make-bundle"
   },
   "keywords": [
     "js",
