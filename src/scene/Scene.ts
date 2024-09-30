@@ -1,12 +1,14 @@
-interface Scene{
+import { PlayerObject } from "../server/player_interface"
+
+interface ServerScene{
     id: string,
-    children: Array<any>,
+    children: Array<PlayerObject>,
     players: number,
     playerMax: number,
     vars: Map<string, any>,
 }
 
-class Scene{
+class ServerScene{
     constructor(id: string, playerMax: number){
         this.children = [];
         this.id = id;
@@ -18,12 +20,12 @@ class Scene{
     remove(id: string): void {
         let childToRemove = this.children.filter(elem => {
             elem.id == id;
-        });
+        })[0];
         if(!childToRemove)return;
         this.children.splice(this.children.indexOf(childToRemove), 1);
     }
 
-    getChildrenByID(id: string): Array<any>{
+    getChildrenByID(id: string): Array<PlayerObject>{
         return this.children.filter(elem => {
             elem.id == id;
         });
@@ -40,4 +42,4 @@ class Scene{
     }
 }
 
-export {Scene}
+export {ServerScene}

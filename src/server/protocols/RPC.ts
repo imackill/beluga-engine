@@ -1,5 +1,6 @@
-import { Scene } from "../../scene/Scene";
+import { ServerScene } from "../../scene/Scene";
 import { BelugaServer } from "../BelugaServer";
+import { PlayerObject } from "../player_interface";
 
 interface RPC{
     _functions: Array<any>,
@@ -71,12 +72,7 @@ class RPC{
             player_data_ssr.rotation = player_data[1];
             scene.children[scene.children.indexOf(scene.children.find(elem => elem.id == data.player_id))] = player_data_ssr;
         }else{
-            scene.children.push({
-                id: data.player_id,
-                position: data.position,
-                rotation: data.rotation,
-                isPlayer: true,
-            });
+            scene.children.push(new PlayerObject(data.plaeyr_id, data.position, data.rotation));
         }
         scene.recalcPlayers();
         ws.send(JSON.stringify({

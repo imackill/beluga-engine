@@ -2,7 +2,7 @@ import * as utils from "./server_utils";
 import * as http from 'http';
 import * as path from 'path';
 import { WebSocketServer } from "ws";
-import { Scene } from "../scene/Scene"
+import {ServerScene } from "../scene/Scene"
 import * as protocols from "./protocols/index";
 import * as fs from 'fs';
 
@@ -125,17 +125,17 @@ class BelugaServer{
     }
 
     createNewScene(playerMax: number=10){
-        let scene = new Scene(crypto.randomUUID(), playerMax);
+        let scene = new ServerScene(crypto.randomUUID(), playerMax);
         this._scenes[scene.id] = scene;
         return scene;
     }
 
-    returnAvailableScenes(id: string=null, playerMax: number=10): Scene{
+    returnAvailableScenes(id: string=null, playerMax: number=10): ServerScene{
         if(id && this._scenes[id]){
             return this._scenes[id];
         }else if(id){
             console.warn(`Client asked for nonexistent scene ${id}, creating new scene with id ${id}.`);
-            let new_scene = new Scene(id, playerMax);
+            let new_scene = new ServerScene(id, playerMax);
             this._scenes[id] = new_scene;
             return new_scene;
         }else if(id == null){

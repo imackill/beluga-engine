@@ -40,7 +40,6 @@ Server response:
     "payload":{
         "scene":"{Scene object}",
         "delay":"delay in ms",// default is 50ms
-        "options":"additional options"
     },
     "time":"time in ms"
 }
