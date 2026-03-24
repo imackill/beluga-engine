@@ -19,7 +19,7 @@
     "types": "types"
   },
   "scripts": {
-    "_clear": "rm -rf ./dist/*",
+    "_clear": "rimraf dist",
     "_tsc": "tsc",
     "_make-bundle": "rollup --config",
     "build": "npm run _clear && npm run _tsc && npm run _make-bundle"
@@ -50,6 +50,7 @@
     "@types/node": "^22.5.4",
     "@types/three": "^0.169.0",
     "@types/ws": "^8.5.12",
+    "rimraf": "^6.1.3",
     "rollup": "^4.21.3",
     "rollup-plugin-dts": "^6.1.1",
     "three": "^0.169.0",

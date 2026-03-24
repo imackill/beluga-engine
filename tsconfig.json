@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "removeComments": false,
-    "sourceMap": true,
-    "target": "es2018",
-    "outDir": "./dist/build",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2018", "DOM"],
+    "rootDir": "./",
+    "outDir": "./dist",
     "declaration": true,
+    "sourceMap": true,
+    "esModuleInterop": true, 
     "strict": false,
-    "module": "esnext",
-    "noEmitOnError": true,
-    "lib": ["ES2018"],
-    "esModuleInterop": false,
+    "skipLibCheck": true,
+    "noEmitOnError": true
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts"]
 }

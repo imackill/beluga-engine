@@ -1,17 +1,28 @@
 import typescript from '@rollup/plugin-typescript';
 import dts from "rollup-plugin-dts";
-const config = [
+
+// Assuming your main entry point is src/Beluga.ts based on your previous config
+const input = 'src/Beluga.ts'; 
+
+export default [
   {
-    input: 'dist/build/Beluga.js',
+    input,
     output: {
       file: 'dist/beluga-engine.js',
       format: 'es',
       sourcemap: true,
     },
-    external: ['crypto', 'fs', 'http', 'path', 'three'],
-    plugins: [typescript()]
-  }, {
-    input: 'dist/build/Beluga.d.ts',
+    // Keep internal node modules and heavy dependencies out of the bundle
+    external: ['crypto', 'fs', 'http', 'path', 'three', 'ws'],
+    plugins: [
+      typescript({
+        tsconfig: './tsconfig.json',
+        declaration: false, // We handle declarations in the next pass
+      })
+    ]
+  },
+  {
+    input,
     output: {
       file: 'dist/beluga-engine.d.ts',
       format: 'es'
@@ -19,4 +30,3 @@ const config = [
     plugins: [dts()]
   }
 ];
-export default config;
